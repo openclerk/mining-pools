@@ -1,0 +1,20 @@
+{
+  "name": "openclerk/mining-pools",
+  "description": "Definitions and implementations of mining pools in Openclerk",
+  "autoload": {
+    "psr-4": {
+      "Account\\MiningPool\\": "src",
+      "Account\\MiningPool\\Tests\\": "test"
+    }
+  },
+  "require": {
+    "openclerk/accounts": "dev-master",
+    "openclerk/apis": "dev-master",
+    "openclerk/config": "dev-master",
+    "openclerk/currencies": "dev-master",
+    "monolog/monolog": "~1.11"
+  },
+  "require-dev": {
+    "soundasleep/component-tests": "dev-master"
+  }
+}
