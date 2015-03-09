@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "a537473edb0714220528d0c32ca2a18d",
+    "hash": "22152535ba2a127c474d5a0c32ab158b",
     "packages": [
         {
             "name": "monolog/monolog",
@@ -85,12 +85,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/openclerk/accounts.git",
-                "reference": "b6d952a96e7d9e1293c376b768e84d5dabb11ce4"
+                "reference": "d22791d61edd0bb723334bf02c562a7735709851"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/openclerk/accounts/zipball/b6d952a96e7d9e1293c376b768e84d5dabb11ce4",
-                "reference": "b6d952a96e7d9e1293c376b768e84d5dabb11ce4",
+                "url": "https://api.github.com/repos/openclerk/accounts/zipball/d22791d61edd0bb723334bf02c562a7735709851",
+                "reference": "d22791d61edd0bb723334bf02c562a7735709851",
                 "shasum": ""
             },
             "require": {
@@ -108,7 +108,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "description": "Definitions and implementations of accounts in Openclerk",
-            "time": "2015-03-06 00:25:12"
+            "time": "2015-03-06 01:15:52"
         },
         {
             "name": "openclerk/apis",
