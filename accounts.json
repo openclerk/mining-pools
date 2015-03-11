@@ -10,5 +10,6 @@
   "dedicatedpool_doge": "\\Account\\MiningPool\\DedicatedPoolDOGE",
   "dogechainpool": "\\Account\\MiningPool\\DogechainPool",
   "dogepoolpw": "\\Account\\MiningPool\\DogepoolPw",
+  "ecoining_ppc": "\\Account\\MiningPool\\EcoiningPeercoin",
   "slush": "\\Account\\MiningPool\\Slush"
 }
