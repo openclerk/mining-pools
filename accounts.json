@@ -12,5 +12,6 @@
   "dogepoolpw": "\\Account\\MiningPool\\DogepoolPw",
   "ecoining_ppc": "\\Account\\MiningPool\\EcoiningPeercoin",
   "eligius": "\\Account\\MiningPool\\Eligius",
+  "elitistjerks": "\\Account\\MiningPool\\ElitistJerks",
   "slush": "\\Account\\MiningPool\\Slush"
 }
