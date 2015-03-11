@@ -3,6 +3,7 @@
 namespace Account\MiningPool;
 
 use \Monolog\Logger;
+use \Openclerk\Currencies\CurrencyFactory;
 
 /**
  * Represents the D2 WDC mining pool.
@@ -21,7 +22,7 @@ class D2WDC extends AbstractMPOSAccount {
     return "https://wdc.d2.cc/";
   }
 
-  public function fetchSupportedCurrencies(Logger $logger) {
+  public function fetchSupportedCurrencies(CurrencyFactory $factory, Logger $logger) {
     return array('wdc');
   }
 

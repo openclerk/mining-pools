@@ -4,6 +4,7 @@ namespace Account\MiningPool;
 
 use \Monolog\Logger;
 use \Account\DisabledAccount;
+use \Openclerk\Currencies\CurrencyFactory;
 
 /**
  * Represents the Elitist Jerks mining pool.
@@ -22,7 +23,7 @@ class ElitistJerks extends AbstractMPOSAccount implements DisabledAccount {
     return "https://www.ejpool.info/";
   }
 
-  public function fetchSupportedCurrencies(Logger $logger) {
+  public function fetchSupportedCurrencies(CurrencyFactory $factory, Logger $logger) {
     return array('ltc');
   }
 

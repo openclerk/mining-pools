@@ -11,6 +11,7 @@ use \Account\AccountFetchException;
 use \Apis\FetchException;
 use \Apis\FetchHttpException;
 use \Apis\Fetch;
+use \Openclerk\Currencies\CurrencyFactory;
 
 /**
  * Represents the BTC Guild mining pool.
@@ -44,7 +45,7 @@ class BTCGuild extends SimpleAccountType implements Miner {
    * Uses currency codes from openclerk/currencies.
    * May block.
    */
-  public function fetchSupportedCurrencies(Logger $logger) {
+  public function fetchSupportedCurrencies(CurrencyFactory $factory, Logger $logger) {
     return array('btc', 'nmc');
   }
 
@@ -55,7 +56,7 @@ class BTCGuild extends SimpleAccountType implements Miner {
    * support mining.
    * May block.
    */
-  public function fetchSupportedHashrateCurrencies(Logger $logger) {
+  public function fetchSupportedHashrateCurrencies(CurrencyFactory $factory, Logger $logger) {
     return array('btc', 'nmc');
   }
 
@@ -63,7 +64,7 @@ class BTCGuild extends SimpleAccountType implements Miner {
    * @return all account balances
    * @throws AccountFetchException if something bad happened
    */
-  public function fetchBalances($account, Logger $logger) {
+  public function fetchBalances($account, CurrencyFactory $factory, Logger $logger) {
 
     $url = "https://www.btcguild.com/api.php?api_key=" . $account['api_key'];
     $logger->info($url);

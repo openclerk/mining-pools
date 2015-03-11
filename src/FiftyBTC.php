@@ -10,6 +10,7 @@ use \Account\SimpleAccountType;
 use \Account\AccountFetchException;
 use \Apis\FetchHttpException;
 use \Apis\Fetch;
+use \Openclerk\Currencies\CurrencyFactory;
 
 /**
  * Represents the 50BTC mining pool.
@@ -43,7 +44,7 @@ class FiftyBTC extends SimpleAccountType implements Miner, DisabledAccount {
    * Uses currency codes from openclerk/currencies.
    * May block.
    */
-  public function fetchSupportedCurrencies(Logger $logger) {
+  public function fetchSupportedCurrencies(CurrencyFactory $factory, Logger $logger) {
     return array();
   }
 
@@ -54,7 +55,7 @@ class FiftyBTC extends SimpleAccountType implements Miner, DisabledAccount {
    * support mining.
    * May block.
    */
-  public function fetchSupportedHashrateCurrencies(Logger $logger) {
+  public function fetchSupportedHashrateCurrencies(CurrencyFactory $factory, Logger $logger) {
     return array();
   }
 
@@ -62,7 +63,7 @@ class FiftyBTC extends SimpleAccountType implements Miner, DisabledAccount {
    * @return all account balances
    * @throws AccountFetchException if something bad happened
    */
-  public function fetchBalances($account, Logger $logger) {
+  public function fetchBalances($account, CurrencyFactory $factory, Logger $logger) {
     throw new AccountFetchException("Cannot fetch balances of disabled account");
   }
 

@@ -11,6 +11,7 @@ use \Account\AccountFetchException;
 use \Apis\FetchException;
 use \Apis\FetchHttpException;
 use \Apis\Fetch;
+use \Openclerk\Currencies\CurrencyFactory;
 
 /**
  * Represents the Eligius mining pool.
@@ -39,11 +40,11 @@ class Eligius extends SimpleAccountType implements Miner {
     );
   }
 
-  public function fetchSupportedCurrencies(Logger $logger) {
+  public function fetchSupportedCurrencies(CurrencyFactory $factory, Logger $logger) {
     return array('btc');
   }
 
-  public function fetchSupportedHashrateCurrencies(Logger $logger) {
+  public function fetchSupportedHashrateCurrencies(CurrencyFactory $factory, Logger $logger) {
     return array('btc');
   }
 
@@ -51,7 +52,7 @@ class Eligius extends SimpleAccountType implements Miner {
    * @return all account balances
    * @throws AccountFetchException if something bad happened
    */
-  public function fetchBalances($account, Logger $logger) {
+  public function fetchBalances($account, CurrencyFactory $factory, Logger $logger) {
 
     $url = "http://eligius.st/~wizkid057/newstats/api.php?cmd=getuserstat&username=" . $account['btc_address'];
     $logger->info($url);

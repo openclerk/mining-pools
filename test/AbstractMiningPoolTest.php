@@ -19,8 +19,8 @@ abstract class AbstractMiningPoolTest extends AbstractActiveAccountTest {
    * not listed in {@link #fetchSupportedHashrateCurrencies()}.
    */
   function testValidAccountMatchHashrates() {
-    $supported = $this->account->fetchSupportedHashrateCurrencies($this->logger);
-    $balances = $this->account->fetchBalances($this->getValidAccount(), $this->logger);
+    $supported = $this->account->fetchSupportedHashrateCurrencies($this->factory, $this->logger);
+    $balances = $this->account->fetchBalances($this->getValidAccount(), $this->factory, $this->logger);
 
     foreach ($balances as $cur => $balance) {
       if (isset($balance['hashrate'])) {

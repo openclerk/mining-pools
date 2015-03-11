@@ -4,6 +4,7 @@ namespace Account\MiningPool;
 
 use \Monolog\Logger;
 use \Account\DisabledAccount;
+use \Openclerk\Currencies\CurrencyFactory;
 
 /**
  * Represents the DedicatedPool DOGE mining pool.
@@ -22,7 +23,7 @@ class DedicatedPoolDOGE extends AbstractMPOSAccount implements DisabledAccount {
     return "http://doge.dedicatedpool.com/";
   }
 
-  public function fetchSupportedCurrencies(Logger $logger) {
+  public function fetchSupportedCurrencies(CurrencyFactory $factory, Logger $logger) {
     return array('dog');
   }
 

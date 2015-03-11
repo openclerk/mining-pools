@@ -3,6 +3,7 @@
 namespace Account\MiningPool;
 
 use \Monolog\Logger;
+use \Openclerk\Currencies\CurrencyFactory;
 
 /**
  * Represents the CryptoTroll DOGE mining pool.
@@ -21,7 +22,7 @@ class CryptoTrollDOGE extends AbstractMPOSAccount {
     return "http://doge.cryptotroll.com/";
   }
 
-  public function fetchSupportedCurrencies(Logger $logger) {
+  public function fetchSupportedCurrencies(CurrencyFactory $factory, Logger $logger) {
     return array('dog');
   }
 

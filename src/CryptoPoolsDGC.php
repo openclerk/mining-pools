@@ -3,6 +3,7 @@
 namespace Account\MiningPool;
 
 use \Monolog\Logger;
+use \Openclerk\Currencies\CurrencyFactory;
 
 /**
  * Represents the CryptoPools DGC mining pool.
@@ -21,7 +22,7 @@ class CryptoPoolsDGC extends AbstractMPOSAccount {
     return "http://dgc.cryptopools.com/";
   }
 
-  public function fetchSupportedCurrencies(Logger $logger) {
+  public function fetchSupportedCurrencies(CurrencyFactory $factory, Logger $logger) {
     return array('dgc');
   }
 

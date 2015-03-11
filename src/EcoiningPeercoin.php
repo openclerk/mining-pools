@@ -3,6 +3,7 @@
 namespace Account\MiningPool;
 
 use \Monolog\Logger;
+use \Openclerk\Currencies\CurrencyFactory;
 
 /**
  * Represents the Ecoining Peercoin mining pool.
@@ -21,7 +22,7 @@ class EcoiningPeercoin extends AbstractMPOSAccount {
     return "https://peercoin.ecoining.com/";
   }
 
-  public function fetchSupportedCurrencies(Logger $logger) {
+  public function fetchSupportedCurrencies(CurrencyFactory $factory, Logger $logger) {
     return array('ppc');
   }
 

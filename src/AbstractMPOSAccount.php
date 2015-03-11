@@ -11,6 +11,7 @@ use \Account\AccountFetchException;
 use \Apis\FetchException;
 use \Apis\FetchHttpException;
 use \Apis\Fetch;
+use \Openclerk\Currencies\CurrencyFactory;
 
 /**
  * Many mining pools are using php-mpos mining pool software.
@@ -38,21 +39,21 @@ abstract class AbstractMPOSAccount extends SimpleAccountType implements Miner {
   /**
    * Assumes that all supported balance currencies also supports hashrates
    */
-  public function fetchSupportedHashrateCurrencies(Logger $logger) {
-    return $this->fetchSupportedCurrencies($logger);
+  public function fetchSupportedHashrateCurrencies(CurrencyFactory $factory, Logger $logger) {
+    return $this->fetchSupportedCurrencies($factory, $logger);
   }
 
   /**
    * @return all account balances
    * @throws AccountFetchException if something bad happened
    */
-  public function fetchBalances($account, Logger $logger) {
+  public function fetchBalances($account, CurrencyFactory $factory, Logger $logger) {
 
     $balance = $this->fetchMPOSBalance($account, $logger);
     $status = $this->fetchMPOSStatus($account, $logger);
 
     $result = array();
-    foreach ($this->fetchSupportedCurrencies($logger) as $cur) {
+    foreach ($this->fetchSupportedCurrencies($factory, $logger) as $cur) {
       if (!isset($result[$cur])) {
         $result[$cur] = array();
       }
@@ -66,7 +67,7 @@ abstract class AbstractMPOSAccount extends SimpleAccountType implements Miner {
       }
     }
 
-    foreach ($this->fetchSupportedHashrateCurrencies($logger) as $cur) {
+    foreach ($this->fetchSupportedHashrateCurrencies($factory, $logger) as $cur) {
       if (!isset($result[$cur])) {
         $result[$cur] = array();
       }
