@@ -3,5 +3,6 @@
   "beeeeer": "\\Account\\MiningPool\\Beeeeer",
   "bitminter": "\\Account\\MiningPool\\BitMinter",
   "btcguild": "\\Account\\MiningPool\\BTCGuild",
+  "coinhuntr": "\\Account\\MiningPool\\CoinHuntr",
   "slush": "\\Account\\MiningPool\\Slush"
 }
