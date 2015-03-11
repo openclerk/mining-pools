@@ -6,20 +6,20 @@ use \Monolog\Logger;
 use \Account\DisabledAccount;
 
 /**
- * Represents the Dogechain Pool mining pool.
+ * Represents the dogepool.pw mining pool.
  */
-class DogechainPool extends AbstractMPOSAccount implements DisabledAccount {
+class DogepoolPw extends AbstractMPOSAccount implements DisabledAccount {
 
   public function getName() {
-    return "Dogechain Pool";
+    return "dogepool.pw";
   }
 
   public function getCode() {
-    return "dogechainpool";
+    return "dogepoolpw";
   }
 
   public function getURL() {
-    return "http://pool.dogechain.info/";
+    return "http://dogepool.pw/";
   }
 
   public function fetchSupportedCurrencies(Logger $logger) {
@@ -27,7 +27,7 @@ class DogechainPool extends AbstractMPOSAccount implements DisabledAccount {
   }
 
   public function getBaseAPI() {
-    return "https://pool.dogechain.info/index.php?page=api&";
+    return "http://dogepool.pw/index.php?page=api&";
   }
 
   public function disabledAt() {
