@@ -71,6 +71,7 @@ class BitMinter extends SimpleAccountType implements Miner {
     );
 
     try {
+      $this->throttle($logger);
       $raw = Fetch::get($url, $options);
     } catch (FetchHttpException $e) {
       throw new AccountFetchException($e->getContent(), $e);

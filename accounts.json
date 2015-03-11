@@ -2,5 +2,6 @@
   "50btc": "\\Account\\MiningPool\\FiftyBTC",
   "beeeeer": "\\Account\\MiningPool\\Beeeeer",
   "bitminter": "\\Account\\MiningPool\\BitMinter",
+  "btcguild": "\\Account\\MiningPool\\BTCGuild",
   "slush": "\\Account\\MiningPool\\Slush"
 }

@@ -8,32 +8,33 @@ use \Account\Miner;
 use \Account\DisabledAccount;
 use \Account\SimpleAccountType;
 use \Account\AccountFetchException;
+use \Apis\FetchException;
 use \Apis\FetchHttpException;
 use \Apis\Fetch;
 
 /**
- * Represents the Slush mining pool.
+ * Represents the BTC Guild mining pool.
  */
-class Slush extends SimpleAccountType implements Miner {
+class BTCGuild extends SimpleAccountType implements Miner {
 
   public function getName() {
-    return "Slush's pool";
+    return "BTC Guild";
   }
 
   public function getCode() {
-    return "slush";
+    return "btcguild";
   }
 
   public function getURL() {
-    return "https://mining.bitcoin.cz/";
+    return "https://www.btcguild.com/";
   }
 
   public function getFields() {
     return array(
-      // not sure what the format is, but it looks to be [user-id]-[random 32 hex characters]
-      'api_token' => array(
-        'title' => "API current token",
-        'regexp' => "#^[0-9]+-[0-9a-f]{32}$#",
+      // looks like a 32 character hex string
+      'api_key' => array(
+        'title' => "API key",
+        'regexp' => "#^[a-f0-9]{32}$#"
       ),
     );
   }
@@ -64,32 +65,44 @@ class Slush extends SimpleAccountType implements Miner {
    */
   public function fetchBalances($account, Logger $logger) {
 
-    $url = "https://mining.bitcoin.cz/accounts/profile/json/" . $account['api_token'];
+    $url = "https://www.btcguild.com/api.php?api_key=" . $account['api_key'];
     $logger->info($url);
 
     try {
-      $this->throttle($logger);
+      $this->throttle($logger, 15);
       $raw = Fetch::get($url);
     } catch (FetchHttpException $e) {
       throw new AccountFetchException($e->getContent(), $e);
     }
-    $json = Fetch::jsonDecode($raw);
 
-    if (!$json) {
-      throw new AccountFetchException($raw);
+    try {
+      $json = Fetch::jsonDecode($raw);
+    } catch (FetchException $e) {
+      throw new AccountFetchException($raw, $e);
+    }
+
+    $workers = count($json['workers']);
+    $hashrate = 0;
+    foreach ($json['workers'] as $worker) {
+      $hashrate += $worker['hash_rate'];
     }
 
     return array(
       'btc' => array(
-        'confirmed' => $json['confirmed_reward'],
-        'unconfirmed' => $json['unconfirmed_reward'],
-        'estimated' => $json['estimated_reward'],
-        'hashrate' => $json['hashrate'],
+        'confirmed' => $json['user']['unpaid_rewards'],
+        'total' => $json['user']['total_rewards'],
+        'paid' => $json['user']['paid_rewards'],
+        '24h' => $json['user']['past_24h_rewards'],
+        'hashrate' => $hashrate,
+        'workers' => $workers,
       ),
       'nmc' => array(
-        'confirmed' => $json['confirmed_nmc_reward'],
-        'unconfirmed' => $json['unconfirmed_nmc_reward'],
-        'hashrate' => $json['hashrate'],
+        'confirmed' => $json['user']['unpaid_rewards_nmc'],
+        'total' => $json['user']['total_rewards_nmc'],
+        'paid' => $json['user']['paid_rewards_nmc'],
+        '24h' => $json['user']['past_24h_rewards_nmc'],
+        'hashrate' => $hashrate,
+        'workers' => $workers,
       ),
     );
 

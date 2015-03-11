@@ -54,7 +54,7 @@ class SlushTest extends AbstractMiningPoolTest {
     $this->assertEquals(0, $balances['btc']['confirmed']);
     $this->assertEquals(0, $balances['btc']['hashrate']);
     $this->assertEquals(0, $balances['nmc']['confirmed']);
-    $this->assertEquals(0, $balances['nmc']['confirmed']);
+    $this->assertEquals(0, $balances['nmc']['hashrate']);
   }
 
 }

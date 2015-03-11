@@ -11,12 +11,12 @@ use Openclerk\Config;
 use Openclerk\Currencies\Currency;
 
 /**
- * Tests the {@link BitMinter} account type.
+ * Tests the {@link BTCGuild} account type.
  */
-class BitMinterTest extends AbstractMiningPoolTest {
+class BTCGuildTest extends AbstractMiningPoolTest {
 
   function __construct() {
-    parent::__construct(new \Account\MiningPool\BitMinter());
+    parent::__construct(new \Account\MiningPool\BTCGuild());
   }
 
   /**
@@ -25,7 +25,7 @@ class BitMinterTest extends AbstractMiningPoolTest {
    */
   function getValidAccount() {
     return array(
-      'api_key' => 'JUDZEPF01PALUM0XZ5DXF5EJTN2GLHZN',
+      'api_key' => '518b0e3ab76ee2113c1fb97124bc1ffe',
     );
   }
 
@@ -36,7 +36,7 @@ class BitMinterTest extends AbstractMiningPoolTest {
    */
   function getMissingAccount() {
     return array(
-      'api_key' => 'JUDZEPF01PALUM0XZ5DXF5EJTN2GLHZ0',
+      'api_key' => '518b0e3ab76ee2113c1fb97124bc1ff1',
     );
   }
 
