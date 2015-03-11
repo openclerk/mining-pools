@@ -33,7 +33,7 @@ class Beeeeer extends SimpleAccountType implements Miner, DisabledAccount {
       // valid XPM address
       'api_token' => array(
         'title' => "XPM Address",
-        'address' => "xpm",
+        'regexp' => "#^[A][A-Za-z0-9]{26,33}$#",
       ),
     );
   }
