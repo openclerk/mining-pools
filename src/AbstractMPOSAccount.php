@@ -13,7 +13,7 @@ use \Apis\FetchHttpException;
 use \Apis\Fetch;
 
 /**
- * Many mining pools are using MPOS mining pool software.
+ * Many mining pools are using php-mpos mining pool software.
  */
 abstract class AbstractMPOSAccount extends SimpleAccountType implements Miner {
 
