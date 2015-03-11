@@ -6,5 +6,6 @@
   "coinhuntr": "\\Account\\MiningPool\\CoinHuntr",
   "cryptopools_dgc": "\\Account\\MiningPool\\CryptoPoolsDGC",
   "cryptotroll_doge": "\\Account\\MiningPool\\CryptoTrollDOGE",
+  "d2_wdc": "\\Account\\MiningPool\\D2WDC",
   "slush": "\\Account\\MiningPool\\Slush"
 }

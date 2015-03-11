@@ -56,17 +56,26 @@ abstract class AbstractMPOSAccount extends SimpleAccountType implements Miner {
       if (!isset($result[$cur])) {
         $result[$cur] = array();
       }
-      $result[$cur]['confirmed'] = $balance['confirmed'];
-      $result[$cur]['unconfirmed'] = $balance['unconfirmed'];
-      $result[$cur]['orphaned'] = $balance['orphaned'];
+      if (isset($balance['confirmed'])) {
+        $result[$cur]['confirmed'] = $balance['confirmed'];
+        $result[$cur]['unconfirmed'] = $balance['unconfirmed'];
+        $result[$cur]['orphaned'] = $balance['orphaned'];
+      } else {
+        $result[$cur]['confirmed'] = $balance['confirmed_rewards'];
+        $result[$cur]['total'] = $balance['payout_history'];
+      }
     }
 
     foreach ($this->fetchSupportedHashrateCurrencies($logger) as $cur) {
       if (!isset($result[$cur])) {
         $result[$cur] = array();
       }
-      $result[$cur]['hashrate'] = $status['hashrate'];
-      $result[$cur]['sharerate'] = $status['sharerate'];
+      if (isset($status['hashrate'])) {
+        $result[$cur]['hashrate'] = $status['hashrate'];
+        $result[$cur]['sharerate'] = $status['sharerate'];
+      } else {
+        $result[$cur]['hashrate'] = $status['total_hashrate'];
+      }
     }
 
     return $result;
@@ -94,7 +103,13 @@ abstract class AbstractMPOSAccount extends SimpleAccountType implements Miner {
       throw new AccountFetchException($raw, $e);
     }
 
-    return isset($json['getuserbalance']['data']) ? $json['getuserbalance']['data'] : $json['getuserbalance'];
+    if (isset($json['getuserbalance']['data'])) {
+      return $json['getuserbalance']['data'];
+    } else if (isset($json['getuserbalance'])) {
+      return $json['getuserbalance'];
+    } else {
+      return $json;
+    }
 
   }
 
@@ -119,7 +134,14 @@ abstract class AbstractMPOSAccount extends SimpleAccountType implements Miner {
       throw new AccountFetchException($raw, $e);
     }
 
-    return isset($json['getuserstatus']['data']) ? $json['getuserstatus']['data'] : $json['getuserstatus'];
+    if (isset($json['getuserstatus']['data'])) {
+      return $json['getuserstatus']['data'];
+    } else if (isset($json['getuserstatus'])) {
+      return $json['getuserstatus'];
+    } else {
+      return $json;
+    }
+
   }
 
 }
