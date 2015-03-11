@@ -4,5 +4,6 @@
   "bitminter": "\\Account\\MiningPool\\BitMinter",
   "btcguild": "\\Account\\MiningPool\\BTCGuild",
   "coinhuntr": "\\Account\\MiningPool\\CoinHuntr",
+  "cryptopools_dgc": "\\Account\\MiningPool\\CryptoPoolsDGC",
   "slush": "\\Account\\MiningPool\\Slush"
 }
