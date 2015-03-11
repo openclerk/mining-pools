@@ -5,6 +5,7 @@ namespace Account\MiningPool;
 use \Monolog\Logger;
 use \Account\Account;
 use \Account\Miner;
+use \Account\DisabledAccount;
 use \Account\SimpleAccountType;
 use \Account\AccountFetchException;
 use \Apis\FetchHttpException;

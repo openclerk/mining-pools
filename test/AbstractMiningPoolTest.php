@@ -5,14 +5,14 @@ namespace Account\MiningPool\Tests;
 use Monolog\Logger;
 use Account\AccountType;
 use Account\AccountFetchException;
-use Account\Tests\AbstractAccountTest;
+use Account\Tests\AbstractActiveAccountTest;
 use Openclerk\Config;
 use Openclerk\Currencies\Currency;
 
 /**
  * Abstracts away common test functionality.
  */
-abstract class AbstractMiningPoolTest extends AbstractAccountTest {
+abstract class AbstractMiningPoolTest extends AbstractActiveAccountTest {
 
   /**
    * We assert that there are no hashrate currencies in {@link #fetchBalances()} that are
