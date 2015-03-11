@@ -8,5 +8,6 @@
   "cryptotroll_doge": "\\Account\\MiningPool\\CryptoTrollDOGE",
   "d2_wdc": "\\Account\\MiningPool\\D2WDC",
   "dedicatedpool_doge": "\\Account\\MiningPool\\DedicatedPoolDOGE",
+  "dogechainpool": "\\Account\\MiningPool\\DogechainPool",
   "slush": "\\Account\\MiningPool\\Slush"
 }
