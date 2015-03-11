@@ -25,6 +25,8 @@ abstract class AbstractMiningPoolTest extends AbstractActiveAccountTest {
     foreach ($balances as $cur => $balance) {
       if (isset($balance['hashrate'])) {
         if (!in_array($cur, $supported)) {
+          // for example, fetchBalances() returns 'ghs' but this isn't
+          // returned as a currency by fetchSupportedHashrateCurrencies()
           $this->fail("Did not expect hashrate for '$cur' to be returned as a supported hashrate currency from fetchBalances()");
         }
       }
