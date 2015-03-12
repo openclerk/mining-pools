@@ -30,5 +30,6 @@
   "ltcmineru": "\\Account\\MiningPool\\LTCMineRu",
   "miningforeman": "\\Account\\MiningPool\\MiningForemanLTC",
   "miningforeman_ftc": "\\Account\\MiningPool\\MiningForemanFTC",
+  "miningpoolco": "\\Account\\MiningPool\\MiningPoolCo",
   "slush": "\\Account\\MiningPool\\Slush"
 }
