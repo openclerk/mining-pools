@@ -32,5 +32,6 @@
   "miningforeman_ftc": "\\Account\\MiningPool\\MiningForemanFTC",
   "miningpoolco": "\\Account\\MiningPool\\MiningPoolCo",
   "multipool": "\\Account\\MiningPool\\Multipool",
+  "mupool": "\\Account\\MiningPool\\MuPool",
   "slush": "\\Account\\MiningPool\\Slush"
 }
