@@ -21,5 +21,6 @@
   "hashfaster_ftc": "\\Account\\MiningPool\\HashFasterFTC",
   "hashtocoins": "\\Account\\MiningPool\\HashToCoins",
   "hypernova": "\\Account\\MiningPool\\HypernovaPw",
+  "kattare": "\\Account\\MiningPool\\Kattare",
   "slush": "\\Account\\MiningPool\\Slush"
 }
