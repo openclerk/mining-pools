@@ -19,5 +19,6 @@
   "hashfaster_doge": "\\Account\\MiningPool\\HashFasterDOGE",
   "hashfaster_ltc": "\\Account\\MiningPool\\HashFasterLTC",
   "hashfaster_ftc": "\\Account\\MiningPool\\HashFasterFTC",
+  "hashtocoins": "\\Account\\MiningPool\\HashToCoins",
   "slush": "\\Account\\MiningPool\\Slush"
 }
