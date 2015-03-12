@@ -34,5 +34,6 @@
   "multipool": "\\Account\\MiningPool\\Multipool",
   "mupool": "\\Account\\MiningPool\\MuPool",
   "nicehash": "\\Account\\MiningPool\\NiceHash",
+  "nut2pools_ftc": "\\Account\\MiningPool\\Nut2PoolsFTC",
   "slush": "\\Account\\MiningPool\\Slush"
 }
