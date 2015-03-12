@@ -104,7 +104,7 @@ class Eligius extends SimpleAccountType implements Miner {
     return array(
       'btc' => array(
         'confirmed' => $balance['output']['lbal'] / 1e8,
-        'hashrate' => $hashrate['output']['av256']['numeric'],
+        'hashrate' => $hashrate['output']['av256']['numeric'] /* H/s */,
       ),
     );
 

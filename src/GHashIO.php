@@ -84,7 +84,7 @@ class GHashIO extends SimpleAccountType implements Miner {
     $result = array();
     foreach ($this->fetchSupportedCurrencies($factory, $logger) as $cur) {
       $result[$cur] = array(
-        'hashrate' => $json['last5m'],
+        'hashrate' => $json['last5m'] * 1e6 /* MH/s -> H/s */,
       );
     }
     return $result;

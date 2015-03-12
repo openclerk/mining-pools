@@ -40,11 +40,6 @@ class Eobot extends SimpleAccountType implements Miner {
     );
   }
 
-  /**
-   * Get a list of all the currencies supported by this account (e.g. "btc", "ltc", ...).
-   * Uses currency codes from openclerk/currencies.
-   * May block.
-   */
   public function fetchSupportedCurrencies(CurrencyFactory $factory, Logger $logger) {
     $url = "https://www.eobot.com/api.aspx?supportedcoins=true&json=true";
     $logger->info($url);
@@ -66,13 +61,6 @@ class Eobot extends SimpleAccountType implements Miner {
     return $result;
   }
 
-  /**
-   * Get a list of all currencies that can return current hashrates.
-   * This is not always strictly identical to all currencies that can be hashed;
-   * for example, exchanges may trade in {@link HashableCurrency}s, but not actually
-   * support mining.
-   * May block.
-   */
   public function fetchSupportedHashrateCurrencies(CurrencyFactory $factory, Logger $logger) {
     return $this->fetchSupportedCurrencies($factory, $logger);
   }
@@ -124,7 +112,7 @@ class Eobot extends SimpleAccountType implements Miner {
       $result[$currency] = array('confirmed' => $balance);
 
       if ($mining['mining'] == $cur) {
-        $result[$currency]['hashrate'] = $this->selectHashrate($factory, $currency, $speed);
+        $result[$currency]['hashrate'] = $this->selectHashrate($factory, $currency, $speed) * 1e3 /* KH/s -> H/s */;
       } else {
         $result[$currency]['hashrate'] = 0;
       }

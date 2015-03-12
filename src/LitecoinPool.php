@@ -71,7 +71,7 @@ class LitecoinPool extends SimpleAccountType implements Miner {
         'confirmed' => $json['user']['unpaid_rewards'],
         'paid' => $json['user']['paid_rewards'],
         'total' => $json['user']['total_rewards'],
-        'hashrate' => $json['user']['hash_rate'],
+        'hashrate' => $json['user']['hash_rate'] * 1e3 /* KHash -> Hash */,
         'workers' => count($json['workers']),
       ),
     );

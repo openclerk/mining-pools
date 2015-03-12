@@ -40,30 +40,14 @@ class BTCGuild extends SimpleAccountType implements Miner {
     );
   }
 
-  /**
-   * Get a list of all the currencies supported by this account (e.g. "btc", "ltc", ...).
-   * Uses currency codes from openclerk/currencies.
-   * May block.
-   */
   public function fetchSupportedCurrencies(CurrencyFactory $factory, Logger $logger) {
     return array('btc', 'nmc');
   }
 
-  /**
-   * Get a list of all currencies that can return current hashrates.
-   * This is not always strictly identical to all currencies that can be hashed;
-   * for example, exchanges may trade in {@link HashableCurrency}s, but not actually
-   * support mining.
-   * May block.
-   */
   public function fetchSupportedHashrateCurrencies(CurrencyFactory $factory, Logger $logger) {
     return array('btc', 'nmc');
   }
 
-  /**
-   * @return all account balances
-   * @throws AccountFetchException if something bad happened
-   */
   public function fetchBalances($account, CurrencyFactory $factory, Logger $logger) {
 
     $url = "https://www.btcguild.com/api.php?api_key=" . $account['api_key'];
@@ -94,7 +78,7 @@ class BTCGuild extends SimpleAccountType implements Miner {
         'total' => $json['user']['total_rewards'],
         'paid' => $json['user']['paid_rewards'],
         '24h' => $json['user']['past_24h_rewards'],
-        'hashrate' => $hashrate,
+        'hashrate' => $hashrate * 1e6 /* MH/s -> H/s */,
         'workers' => $workers,
       ),
       'nmc' => array(
@@ -102,7 +86,7 @@ class BTCGuild extends SimpleAccountType implements Miner {
         'total' => $json['user']['total_rewards_nmc'],
         'paid' => $json['user']['paid_rewards_nmc'],
         '24h' => $json['user']['past_24h_rewards_nmc'],
-        'hashrate' => $hashrate,
+        'hashrate' => $hashrate * 1e6 /* MH/s -> H/s */,
         'workers' => $workers,
       ),
     );

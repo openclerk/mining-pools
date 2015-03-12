@@ -93,12 +93,12 @@ class BitMinter extends SimpleAccountType implements Miner {
     return array(
       'btc' => array(
         'confirmed' => isset($json['balances']['BTC']) ? $json['balances']['BTC'] : 0,
-        'hashrate' => $json['hash_rate'],
+        'hashrate' => $json['hash_rate'] * 1e6 /* MH/s -> H/s */,
         'workers' => $json['active_workers'],
       ),
       'nmc' => array(
         'confirmed' => isset($json['balances']['NMC']) ? $json['balances']['NMC'] : 0,
-        'hashrate' => $json['hash_rate'],
+        'hashrate' => $json['hash_rate'] * 1e6 /* MH/s -> H/s */,
         'workers' => $json['active_workers'],
       ),
     );

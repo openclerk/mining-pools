@@ -85,12 +85,12 @@ class Slush extends SimpleAccountType implements Miner {
         'confirmed' => $json['confirmed_reward'],
         'unconfirmed' => $json['unconfirmed_reward'],
         'estimated' => $json['estimated_reward'],
-        'hashrate' => $json['hashrate'],
+        'hashrate' => $json['hashrate'] * 1e6 /* MH/s -> H/s */,
       ),
       'nmc' => array(
         'confirmed' => $json['confirmed_nmc_reward'],
         'unconfirmed' => $json['unconfirmed_nmc_reward'],
-        'hashrate' => $json['hashrate'],
+        'hashrate' => $json['hashrate'] * 1e6 /* MH/s -> H/s */,
       ),
     );
 

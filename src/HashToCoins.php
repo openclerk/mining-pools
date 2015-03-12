@@ -69,7 +69,7 @@ class HashToCoins extends AbstractMPOSAccount {
     // NOTE assumes that the user is always mining LTC; this isn't true, but
     // this should make it easier to track autoswitching miners.
     // we need some sort of API to get currently mined coin
-    $result['ltc']['hashrate'] = $status['data'];
+    $result['ltc']['hashrate'] = $status['data'] * 1e3 /* KH/s -> H/s */;
 
     return $result;
 
