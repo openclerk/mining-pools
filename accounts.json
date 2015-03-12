@@ -14,5 +14,6 @@
   "eligius": "\\Account\\MiningPool\\Eligius",
   "elitistjerks": "\\Account\\MiningPool\\ElitistJerks",
   "eobot": "\\Account\\MiningPool\\Eobot",
+  "ghashio": "\\Account\\MiningPool\\GHashIO",
   "slush": "\\Account\\MiningPool\\Slush"
 }
