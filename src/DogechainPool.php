@@ -32,7 +32,7 @@ class DogechainPool extends AbstractMPOSAccount implements DisabledAccount {
   }
 
   public function disabledAt() {
-    return "2014-11-10";
+    return "2014-09-10";
   }
 
 }
