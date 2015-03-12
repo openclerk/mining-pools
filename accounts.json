@@ -33,5 +33,6 @@
   "miningpoolco": "\\Account\\MiningPool\\MiningPoolCo",
   "multipool": "\\Account\\MiningPool\\Multipool",
   "mupool": "\\Account\\MiningPool\\MuPool",
+  "nicehash": "\\Account\\MiningPool\\NiceHash",
   "slush": "\\Account\\MiningPool\\Slush"
 }

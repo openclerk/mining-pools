@@ -30,11 +30,20 @@ class MuPool extends AbstractMPOSAccount implements DisabledAccount {
   }
 
   public function fetchSupportedCurrencies(CurrencyFactory $factory, Logger $logger) {
-    return array('ltc');
+    return array('btc', 'ppc', 'ltc', 'ftc', 'dog', 'vtc');
   }
 
   public function getBaseAPI() {
-    return "https://mupool.com/index.php?page=api&coin=...&";
+    return null;
+  }
+
+  public function getBaseAPIForCurrency($cur, CurrencyFactory $factory) {
+    $abbr = strtoupper($cur);
+    $instance = $factory->loadCurrency($cur);
+    if ($instance != null) {
+      $abbr = $instance->getAbbr();
+    }
+    return "https://mupool.com/index.php?page=api&coin=" . $abbr . "&";
   }
 
   public function disabledAt() {
