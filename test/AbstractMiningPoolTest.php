@@ -14,6 +14,13 @@ use Openclerk\Currencies\Currency;
  */
 abstract class AbstractMiningPoolTest extends AbstractActiveAccountTest {
 
+  public function __construct(AccountType $type) {
+    parent::__construct($type);
+    Config::merge(array(
+      "accounts_throttle" => 1,     // reduce throttle time for tests
+    ));
+  }
+
   /**
    * We assert that there are no hashrate currencies in {@link #fetchBalances()} that are
    * not listed in {@link #fetchSupportedHashrateCurrencies()}.
@@ -30,6 +37,19 @@ abstract class AbstractMiningPoolTest extends AbstractActiveAccountTest {
           $this->fail("Did not expect hashrate for '$cur' to be returned as a supported hashrate currency from fetchBalances()");
         }
       }
+    }
+  }
+
+  /**
+   * In openclerk/mining-pools, extend this to return instances of openclerk/cryptocurrencies
+   */
+  function loadCurrency($cur) {
+    switch ($cur) {
+      case "dog":
+        return new \Cryptocurrency\Dogecoin();
+
+      default:
+        return null;
     }
   }
 

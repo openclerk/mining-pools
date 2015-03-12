@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "22152535ba2a127c474d5a0c32ab158b",
+    "hash": "4ac3cda677ea728277c840050b5a21a4",
     "packages": [
         {
             "name": "monolog/monolog",
@@ -85,16 +85,17 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/openclerk/accounts.git",
-                "reference": "d22791d61edd0bb723334bf02c562a7735709851"
+                "reference": "da8b0e1db9513a6a0ae0a555e677efac52d7cf2c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/openclerk/accounts/zipball/d22791d61edd0bb723334bf02c562a7735709851",
-                "reference": "d22791d61edd0bb723334bf02c562a7735709851",
+                "url": "https://api.github.com/repos/openclerk/accounts/zipball/da8b0e1db9513a6a0ae0a555e677efac52d7cf2c",
+                "reference": "da8b0e1db9513a6a0ae0a555e677efac52d7cf2c",
                 "shasum": ""
             },
             "require": {
-                "monolog/monolog": "~1.11"
+                "monolog/monolog": "~1.11",
+                "openclerk/currencies": "dev-master"
             },
             "require-dev": {
                 "soundasleep/component-tests": "dev-master"
@@ -108,7 +109,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "description": "Definitions and implementations of accounts in Openclerk",
-            "time": "2015-03-06 01:15:52"
+            "time": "2015-03-11 23:07:27"
         },
         {
             "name": "openclerk/apis",
@@ -116,12 +117,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/openclerk/apis.git",
-                "reference": "6208709cc4bd79893bdb07e6f2e04b103e7bb184"
+                "reference": "04b97b143395c197124e4c0e8cd382101b585998"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/openclerk/apis/zipball/6208709cc4bd79893bdb07e6f2e04b103e7bb184",
-                "reference": "6208709cc4bd79893bdb07e6f2e04b103e7bb184",
+                "url": "https://api.github.com/repos/openclerk/apis/zipball/04b97b143395c197124e4c0e8cd382101b585998",
+                "reference": "04b97b143395c197124e4c0e8cd382101b585998",
                 "shasum": ""
             },
             "require": {
@@ -141,7 +142,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "description": "A library for defining and using APIs",
-            "time": "2015-03-04 01:22:43"
+            "time": "2015-03-11 01:31:26"
         },
         {
             "name": "openclerk/config",
@@ -172,12 +173,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/openclerk/currencies.git",
-                "reference": "6a0b6690562bc1ac495e05b889bbd34beaf8ded1"
+                "reference": "e28d99fbfe553c9a58ad7abd1654006dd21996f0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/openclerk/currencies/zipball/6a0b6690562bc1ac495e05b889bbd34beaf8ded1",
-                "reference": "6a0b6690562bc1ac495e05b889bbd34beaf8ded1",
+                "url": "https://api.github.com/repos/openclerk/currencies/zipball/e28d99fbfe553c9a58ad7abd1654006dd21996f0",
+                "reference": "e28d99fbfe553c9a58ad7abd1654006dd21996f0",
                 "shasum": ""
             },
             "require": {
@@ -190,7 +191,7 @@
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
-            "time": "2015-03-04 23:15:55"
+            "time": "2015-03-11 22:31:07"
         },
         {
             "name": "psr/log",
@@ -297,6 +298,41 @@
                 "schema"
             ],
             "time": "2014-08-25 02:48:14"
+        },
+        {
+            "name": "openclerk/cryptocurrencies",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/openclerk/cryptocurrencies.git",
+                "reference": "ab38a049dd6bf338e2ccfc896fd21b1d33bdf490"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/openclerk/cryptocurrencies/zipball/ab38a049dd6bf338e2ccfc896fd21b1d33bdf490",
+                "reference": "ab38a049dd6bf338e2ccfc896fd21b1d33bdf490",
+                "shasum": ""
+            },
+            "require": {
+                "monolog/monolog": "~1.11",
+                "openclerk/apis": "dev-master",
+                "openclerk/config": "dev-master",
+                "openclerk/currencies": "dev-master",
+                "php": ">=5.4.6"
+            },
+            "require-dev": {
+                "soundasleep/component-tests": "dev-master"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Cryptocurrency\\": "src",
+                    "Cryptocurrency\\Tests\\": "test"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "description": "Definitions and implementations of cryptocurrencies in Openclerk",
+            "time": "2015-03-04 23:38:40"
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -959,7 +995,8 @@
         "openclerk/apis": 20,
         "openclerk/config": 20,
         "openclerk/currencies": 20,
-        "soundasleep/component-tests": 20
+        "soundasleep/component-tests": 20,
+        "openclerk/cryptocurrencies": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

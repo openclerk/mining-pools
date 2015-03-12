@@ -23,6 +23,10 @@ abstract class AbstractMPOSAccount extends SimpleAccountType implements Miner {
    */
   abstract function getBaseAPI();
 
+  function getBaseAPIForCurrency($cur, CurrencyFactory $factory) {
+    return $this->getBaseAPI();
+  }
+
   /**
    * All MPOS accounts have the same API keys
    */
@@ -49,33 +53,34 @@ abstract class AbstractMPOSAccount extends SimpleAccountType implements Miner {
    */
   public function fetchBalances($account, CurrencyFactory $factory, Logger $logger) {
 
-    $balance = $this->fetchMPOSBalance($account, $logger);
-    $status = $this->fetchMPOSStatus($account, $logger);
-
     $result = array();
     foreach ($this->fetchSupportedCurrencies($factory, $logger) as $cur) {
+      $balance = $this->fetchMPOSBalance($cur, $account, $factory, $logger);
+
       if (!isset($result[$cur])) {
         $result[$cur] = array();
       }
       if (isset($balance['confirmed'])) {
-        $result[$cur]['confirmed'] = $balance['confirmed'];
-        $result[$cur]['unconfirmed'] = $balance['unconfirmed'];
-        $result[$cur]['orphaned'] = $balance['orphaned'];
+        $result[$cur]['confirmed'] = $balance['confirmed'] || 0;
+        $result[$cur]['unconfirmed'] = $balance['unconfirmed'] || 0;
+        $result[$cur]['orphaned'] = $balance['orphaned'] || 0;
       } else {
-        $result[$cur]['confirmed'] = $balance['confirmed_rewards'];
-        $result[$cur]['total'] = $balance['payout_history'];
+        $result[$cur]['confirmed'] = $balance['confirmed_rewards'] || 0;
+        $result[$cur]['total'] = $balance['payout_history'] || 0;
       }
     }
 
     foreach ($this->fetchSupportedHashrateCurrencies($factory, $logger) as $cur) {
+      $status = $this->fetchMPOSStatus($cur, $account, $factory, $logger);
+
       if (!isset($result[$cur])) {
         $result[$cur] = array();
       }
       if (isset($status['hashrate'])) {
-        $result[$cur]['hashrate'] = $status['hashrate'];
-        $result[$cur]['sharerate'] = $status['sharerate'];
+        $result[$cur]['hashrate'] = $status['hashrate'] || 0;
+        $result[$cur]['sharerate'] = $status['sharerate'] || 0;
       } else {
-        $result[$cur]['hashrate'] = $status['total_hashrate'];
+        $result[$cur]['hashrate'] = $status['total_hashrate'] || 0;
       }
     }
 
@@ -86,9 +91,9 @@ abstract class AbstractMPOSAccount extends SimpleAccountType implements Miner {
   /**
    * Call API getuserbalance
    */
-  function fetchMPOSBalance($account, Logger $logger) {
+  function fetchMPOSBalance($currency, $account, CurrencyFactory $factory, Logger $logger) {
 
-    $url = $this->getBaseAPI() . "action=getuserbalance&api_key=" . $account['api_key'];
+    $url = $this->getBaseAPIForCurrency($currency, $factory) . "action=getuserbalance&api_key=" . $account['api_key'];
     $logger->info($url);
 
     try {
@@ -117,9 +122,9 @@ abstract class AbstractMPOSAccount extends SimpleAccountType implements Miner {
   /**
    * Call API getuserstatus
    */
-  function fetchMPOSStatus($account, Logger $logger) {
+  function fetchMPOSStatus($currency, $account, CurrencyFactory $factory, Logger $logger) {
 
-    $url = $this->getBaseAPI() . "action=getuserstatus&api_key=" . $account['api_key'];
+    $url = $this->getBaseAPIForCurrency($currency, $factory) . "action=getuserstatus&api_key=" . $account['api_key'];
     $logger->info($url);
 
     try {

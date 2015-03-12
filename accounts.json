@@ -15,5 +15,6 @@
   "elitistjerks": "\\Account\\MiningPool\\ElitistJerks",
   "eobot": "\\Account\\MiningPool\\Eobot",
   "ghashio": "\\Account\\MiningPool\\GHashIO",
+  "givemecoins": "\\Account\\MiningPool\\GiveMeCoins",
   "slush": "\\Account\\MiningPool\\Slush"
 }
