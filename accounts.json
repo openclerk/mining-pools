@@ -23,5 +23,6 @@
   "hypernova": "\\Account\\MiningPool\\HypernovaPw",
   "kattare": "\\Account\\MiningPool\\Kattare",
   "khore": "\\Account\\MiningPool\\KhoreNVC",
+  "lite_coinpool": "\\Account\\MiningPool\\Lite_CoinPool",
   "slush": "\\Account\\MiningPool\\Slush"
 }
