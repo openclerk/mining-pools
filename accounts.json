@@ -22,5 +22,6 @@
   "hashtocoins": "\\Account\\MiningPool\\HashToCoins",
   "hypernova": "\\Account\\MiningPool\\HypernovaPw",
   "kattare": "\\Account\\MiningPool\\Kattare",
+  "khore": "\\Account\\MiningPool\\KhoreNVC",
   "slush": "\\Account\\MiningPool\\Slush"
 }
