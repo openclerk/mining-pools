@@ -25,5 +25,6 @@
   "khore": "\\Account\\MiningPool\\KhoreNVC",
   "lite_coinpool": "\\Account\\MiningPool\\Lite_CoinPool",
   "litecoinpool": "\\Account\\MiningPool\\LitecoinPool",
+  "liteguardian": "\\Account\\MiningPool\\LiteGuardian",
   "slush": "\\Account\\MiningPool\\Slush"
 }
