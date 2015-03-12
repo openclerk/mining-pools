@@ -15,7 +15,7 @@ use \Openclerk\Currencies\CurrencyFactory;
 /**
  * Represents the BitMinter mining pool.
  */
-class BitMinter extends SimpleAccountType implements Miner {
+class BitMinter extends AbstractMiner {
 
   public function getName() {
     return "BitMinter";

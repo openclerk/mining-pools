@@ -15,7 +15,7 @@ use \Openclerk\Currencies\CurrencyFactory;
 /**
  * Represents the 50BTC mining pool.
  */
-class FiftyBTC extends SimpleAccountType implements Miner, DisabledAccount {
+class FiftyBTC extends AbstractMiner implements DisabledAccount {
 
   public function getName() {
     return "50BTC";

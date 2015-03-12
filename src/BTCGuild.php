@@ -16,7 +16,7 @@ use \Openclerk\Currencies\CurrencyFactory;
 /**
  * Represents the BTC Guild mining pool.
  */
-class BTCGuild extends SimpleAccountType implements Miner {
+class BTCGuild extends AbstractMiner {
 
   public function getName() {
     return "BTC Guild";

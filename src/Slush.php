@@ -15,7 +15,7 @@ use \Openclerk\Currencies\CurrencyFactory;
 /**
  * Represents the Slush mining pool.
  */
-class Slush extends SimpleAccountType implements Miner {
+class Slush extends AbstractMiner {
 
   public function getName() {
     return "Slush's pool";
@@ -66,19 +66,7 @@ class Slush extends SimpleAccountType implements Miner {
   public function fetchBalances($account, CurrencyFactory $factory, Logger $logger) {
 
     $url = "https://mining.bitcoin.cz/accounts/profile/json/" . $account['api_token'];
-    $logger->info($url);
-
-    try {
-      $this->throttle($logger);
-      $raw = Fetch::get($url);
-    } catch (FetchHttpException $e) {
-      throw new AccountFetchException($e->getContent(), $e);
-    }
-    $json = Fetch::jsonDecode($raw);
-
-    if (!$json) {
-      throw new AccountFetchException($raw);
-    }
+    $json = $this->fetchJSON($url, $logger);
 
     return array(
       'btc' => array(

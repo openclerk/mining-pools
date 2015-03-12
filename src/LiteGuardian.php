@@ -16,7 +16,7 @@ use \Openclerk\Currencies\CurrencyFactory;
 /**
  * Represents the LiteGuardian mining pool.
  */
-class LiteGuardian extends SimpleAccountType implements Miner {
+class LiteGuardian extends AbstractMiner {
 
   public function getName() {
     return "LiteGuardian";
@@ -51,20 +51,7 @@ class LiteGuardian extends SimpleAccountType implements Miner {
   public function fetchBalances($account, CurrencyFactory $factory, Logger $logger) {
 
     $url = "https://www.liteguardian.com/api/" . $account['api_key'];
-    $logger->info($url);
-
-    try {
-      $this->throttle($logger, 15);
-      $raw = Fetch::get($url);
-    } catch (FetchHttpException $e) {
-      throw new AccountFetchException($e->getContent(), $e);
-    }
-
-    try {
-      $json = Fetch::jsonDecode($raw);
-    } catch (FetchException $e) {
-      throw new AccountFetchException($raw, $e);
-    }
+    $json = $this->fetchJSON($url, $logger);
 
     // was this an invalid key?
     if (isset($json['pool_name'])) {

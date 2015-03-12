@@ -18,7 +18,7 @@ use \Openclerk\Currencies\HashableCurrency;
  * Represents the GHash.io mining pool.
  * Just returns hashrates, does not return balances (this is provided with CEX.io)
  */
-class GHashIO extends SimpleAccountType implements Miner {
+class GHashIO extends AbstractMiner {
 
   public function getName() {
     return "GHash.io";

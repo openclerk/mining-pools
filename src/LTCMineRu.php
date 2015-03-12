@@ -15,7 +15,7 @@ use \Openclerk\Currencies\CurrencyFactory;
 /**
  * Represents the LTCMine.ru mining pool.
  */
-class LTCMineRu extends SimpleAccountType implements Miner, DisabledAccount {
+class LTCMineRu extends AbstractMiner implements DisabledAccount {
 
   public function getName() {
     return "LTCMine.ru";

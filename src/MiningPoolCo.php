@@ -15,7 +15,7 @@ use \Openclerk\Currencies\CurrencyFactory;
 /**
  * Represents the MiningPool.co mining pool.
  */
-class MiningPoolCo extends SimpleAccountType implements Miner, DisabledAccount {
+class MiningPoolCo extends AbstractMiner implements DisabledAccount {
 
   public function getName() {
     return "MiningPool.co";

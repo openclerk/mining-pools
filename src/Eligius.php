@@ -16,7 +16,7 @@ use \Openclerk\Currencies\CurrencyFactory;
 /**
  * Represents the Eligius mining pool.
  */
-class Eligius extends SimpleAccountType implements Miner {
+class Eligius extends AbstractMiner implements Miner {
 
   public function getName() {
     return "Eligius";
@@ -55,51 +55,21 @@ class Eligius extends SimpleAccountType implements Miner {
   public function fetchBalances($account, CurrencyFactory $factory, Logger $logger) {
 
     $url = "http://eligius.st/~wizkid057/newstats/api.php?cmd=getuserstat&username=" . $account['btc_address'];
-    $logger->info($url);
+    $balance = $this->fetchJSON($url, $logger);
 
-    try {
-      $this->throttle($logger);
-      $raw = Fetch::get($url);
-    } catch (FetchHttpException $e) {
-      throw new AccountFetchException($e->getContent(), $e);
+    if (isset($balance['error'])) {
+      throw new AccountFetchException($balance['error']);
     }
-
-    try {
-      $json = Fetch::jsonDecode($raw);
-    } catch (FetchException $e) {
-      throw new AccountFetchException($raw, $e);
-    }
-
-    if (isset($json['error'])) {
-      throw new AccountFetchException($json['error']);
-    }
-
-    $balance = $json;
     if ($balance['output']['lbal'] === "N/A") {
       $balance['output']['lbal'] = 0;
     }
 
     $url = "http://eligius.st/~wizkid057/newstats/api.php?cmd=gethashrate&username=" . $account['btc_address'];
-    $logger->info($url);
+    $hashrate = $this->fetchJSON($url, $logger);
 
-    try {
-      $this->throttle($logger);
-      $raw = Fetch::get($url);
-    } catch (FetchHttpException $e) {
-      throw new AccountFetchException($e->getContent(), $e);
+    if (isset($hashrate['error'])) {
+      throw new AccountFetchException($hashrate['error']);
     }
-
-    try {
-      $json = Fetch::jsonDecode($raw);
-    } catch (FetchException $e) {
-      throw new AccountFetchException($raw, $e);
-    }
-
-    if (isset($json['error'])) {
-      throw new AccountFetchException($json['error']);
-    }
-
-    $hashrate = $json;
 
     return array(
       'btc' => array(

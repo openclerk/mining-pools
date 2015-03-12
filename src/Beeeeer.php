@@ -15,7 +15,7 @@ use \Openclerk\Currencies\CurrencyFactory;
 /**
  * Represents the b(e^5)r.org mining pool.
  */
-class Beeeeer extends SimpleAccountType implements Miner, DisabledAccount {
+class Beeeeer extends AbstractMiner implements DisabledAccount {
 
   public function getName() {
     return "b(e^5)r.org";

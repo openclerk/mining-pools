@@ -15,7 +15,7 @@ use \Openclerk\Currencies\CurrencyFactory;
 /**
  * Represents the hypernova.pw mining pool.
  */
-class HypernovaPw extends SimpleAccountType implements Miner, DisabledAccount {
+class HypernovaPw extends AbstractMiner implements DisabledAccount {
 
   public function getName() {
     return "hypernova.pw";
@@ -39,7 +39,7 @@ class HypernovaPw extends SimpleAccountType implements Miner, DisabledAccount {
   }
 
   public function fetchSupportedCurrencies(CurrencyFactory $factory, Logger $logger) {
-    return array('newt_listbox_set_current(listbox, num)');
+    return array('ltc');
   }
 
   public function fetchSupportedHashrateCurrencies(CurrencyFactory $factory, Logger $logger) {

@@ -15,7 +15,7 @@ use \Openclerk\Currencies\CurrencyFactory;
 /**
  * Represents the CoinHuntr mining pool.
  */
-class CoinHuntr extends SimpleAccountType implements Miner, DisabledAccount {
+class CoinHuntr extends AbstractMiner implements DisabledAccount {
 
   public function getName() {
     return "CoinHuntr";

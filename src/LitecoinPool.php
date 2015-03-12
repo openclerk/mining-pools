@@ -16,7 +16,7 @@ use \Openclerk\Currencies\CurrencyFactory;
 /**
  * Represents the litecoinpool.org mining pool.
  */
-class LitecoinPool extends SimpleAccountType implements Miner {
+class LitecoinPool extends AbstractMiner {
 
   public function getName() {
     return "litecoinpool.org";
@@ -51,20 +51,7 @@ class LitecoinPool extends SimpleAccountType implements Miner {
   public function fetchBalances($account, CurrencyFactory $factory, Logger $logger) {
 
     $url = "https://www.litecoinpool.org/api?api_key=" . $account['api_key'];
-    $logger->info($url);
-
-    try {
-      $this->throttle($logger, 15);
-      $raw = Fetch::get($url);
-    } catch (FetchHttpException $e) {
-      throw new AccountFetchException($e->getContent(), $e);
-    }
-
-    try {
-      $json = Fetch::jsonDecode($raw);
-    } catch (FetchException $e) {
-      throw new AccountFetchException($raw, $e);
-    }
+    $json = $this->fetchJSON($url, $logger);
 
     return array(
       'ltc' => array(
