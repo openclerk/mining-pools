@@ -16,5 +16,8 @@
   "eobot": "\\Account\\MiningPool\\Eobot",
   "ghashio": "\\Account\\MiningPool\\GHashIO",
   "givemecoins": "\\Account\\MiningPool\\GiveMeCoins",
+  "hashfaster_doge": "\\Account\\MiningPool\\HashFasterDOGE",
+  "hashfaster_ltc": "\\Account\\MiningPool\\HashFasterLTC",
+  "hashfaster_ftc": "\\Account\\MiningPool\\HashFasterFTC",
   "slush": "\\Account\\MiningPool\\Slush"
 }
