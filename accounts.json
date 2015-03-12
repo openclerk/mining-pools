@@ -28,5 +28,7 @@
   "liteguardian": "\\Account\\MiningPool\\LiteGuardian",
   "litepooleu": "\\Account\\MiningPool\\LitepoolEu",
   "ltcmineru": "\\Account\\MiningPool\\LTCMineRu",
+  "miningforeman": "\\Account\\MiningPool\\MiningForemanLTC",
+  "miningforeman_ftc": "\\Account\\MiningPool\\MiningForemanFTC",
   "slush": "\\Account\\MiningPool\\Slush"
 }
