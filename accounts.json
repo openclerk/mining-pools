@@ -40,5 +40,7 @@
   "poolx": "\\Account\\MiningPool\\PoolX",
   "wemineltc": "\\Account\\MiningPool\\WeMineLTC",
   "wemineftc": "\\Account\\MiningPool\\WeMineFTC",
+  "rapidhash_doge": "\\Account\\MiningPool\\RapidHashDOGE",
+  "rapidhash_vtc": "\\Account\\MiningPool\\RapidHashVTC",
   "slush": "\\Account\\MiningPool\\Slush"
 }
