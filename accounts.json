@@ -37,6 +37,7 @@
   "nut2pools_ftc": "\\Account\\MiningPool\\Nut2PoolsFTC",
   "ozcoin_btc": "\\Account\\MiningPool\\OzCoinBTC",
   "ozcoin_ltc": "\\Account\\MiningPool\\OzCoinLTC",
+  "poolx": "\\Account\\MiningPool\\PoolX",
   "wemineltc": "\\Account\\MiningPool\\WeMineLTC",
   "wemineftc": "\\Account\\MiningPool\\WeMineFTC",
   "slush": "\\Account\\MiningPool\\Slush"
