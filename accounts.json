@@ -47,5 +47,6 @@
   "shibepool": "\\Account\\MiningPool\\ShibePool",
   "smalltimeminer_mec": "\\Account\\MiningPool\\SmallTimeMinerMEC",
   "teamdoge": "\\Account\\MiningPool\\TeamDoge",
+  "triplemining": "\\Account\\MiningPool\\TripleMining",
   "slush": "\\Account\\MiningPool\\Slush"
 }
