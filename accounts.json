@@ -43,5 +43,6 @@
   "rapidhash_doge": "\\Account\\MiningPool\\RapidHashDOGE",
   "rapidhash_vtc": "\\Account\\MiningPool\\RapidHashVTC",
   "scryptguild": "\\Account\\MiningPool\\ScryptGuild",
+  "scryptpools": "\\Account\\MiningPool\\ScryptPools",
   "slush": "\\Account\\MiningPool\\Slush"
 }
