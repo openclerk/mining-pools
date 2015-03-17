@@ -21,12 +21,13 @@ abstract class AbstractMiner extends SimpleAccountType implements Miner {
   /**
    * Fetch the JSON from the given GET URL, or throw a
    * {@Link AccountFetchException} if something bad happened.
+   * @param $throttle the default delay, or 3 seconds if not specified
    */
-  function fetchJSON($url, Logger $logger) {
+  function fetchJSON($url, Logger $logger, $throttle = 3) {
     $logger->info($url);
 
     try {
-      $this->throttle($logger);
+      $this->throttle($logger, $throttle);
       $raw = Fetch::get($url);
     } catch (FetchHttpException $e) {
       throw new AccountFetchException($e->getContent(), $e);

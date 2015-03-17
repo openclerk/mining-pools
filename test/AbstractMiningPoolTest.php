@@ -17,7 +17,10 @@ abstract class AbstractMiningPoolTest extends AbstractActiveAccountTest {
   public function __construct(AccountType $type) {
     parent::__construct($type);
     Config::merge(array(
-      "accounts_throttle" => 1,     // reduce throttle time for tests
+      // reduce throttle time for tests
+      "accounts_throttle" => 1,
+      "accounts_btcguild_throttle" => 15,
+      "accounts_wemineltc_throttle" => 60,
     ));
   }
 
