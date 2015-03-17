@@ -32,7 +32,7 @@ class ShibePool extends AbstractMPOSAccount implements DisabledAccount {
   }
 
   public function disabledAt() {
-    return "2014-10-09";
+    return "2014-09-10";
   }
 
 }

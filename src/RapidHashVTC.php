@@ -32,7 +32,7 @@ class RapidHashVTC extends AbstractMPOSAccount implements DisabledAccount {
   }
 
   public function disabledAt() {
-    return "2014-07-11";
+    return "2014-11-07";
   }
 
 }

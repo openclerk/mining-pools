@@ -7,32 +7,32 @@ use \Openclerk\Currencies\CurrencyFactory;
 use \Account\DisabledAccount;
 
 /**
- * Represents the RapidHash DOGE mining pool.
+ * Represents the Small Time Miner MEC mining pool.
  */
-class RapidHashDOGE extends AbstractMPOSAccount implements DisabledAccount {
+class SmallTimeMinerMEC extends AbstractMPOSAccount implements DisabledAccount {
 
   public function getName() {
-    return "RapidHash DOGE";
+    return "Small Time Miner MEC";
   }
 
   public function getCode() {
-    return "rapidhash_doge";
+    return "smalltimeminer_mec";
   }
 
   public function getURL() {
-    return "https://doge.rapidhash.net/";
+    return "http://meg.smalltimeminer.com/";
   }
 
   public function fetchSupportedCurrencies(CurrencyFactory $factory, Logger $logger) {
-    return array('dog');
+    return array('mec');
   }
 
   public function getBaseAPI() {
-    return "https://doge.rapidhash.net/index.php?page=api&";
+    return "http://meg.smalltimeminer.com/index.php?page=api&";
   }
 
   public function disabledAt() {
-    return "2014-11-07";
+    return "2014-04-07";
   }
 
 }
