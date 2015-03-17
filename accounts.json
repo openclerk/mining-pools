@@ -45,9 +45,10 @@
   "scryptguild": "\\Account\\MiningPool\\ScryptGuild",
   "scryptpools": "\\Account\\MiningPool\\ScryptPools",
   "shibepool": "\\Account\\MiningPool\\ShibePool",
+  "slush": "\\Account\\MiningPool\\Slush",
   "smalltimeminer_mec": "\\Account\\MiningPool\\SmallTimeMinerMEC",
   "teamdoge": "\\Account\\MiningPool\\TeamDoge",
   "triplemining": "\\Account\\MiningPool\\TripleMining",
   "westhash": "\\Account\\MiningPool\\WestHash",
-  "slush": "\\Account\\MiningPool\\Slush"
+  "ypool": "\\Account\\MiningPool\\YPool"
 }
