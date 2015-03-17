@@ -33,13 +33,21 @@ abstract class AbstractMiner extends SimpleAccountType implements Miner {
     }
 
     try {
-      $json = Fetch::jsonDecode($raw);
+      $json = $this->jsonDecode($raw);
     } catch (FetchException $e) {
       $message = strlen($raw) < 64 ? $e->getMessage() : $raw;
       throw new AccountFetchException($message, $e);
     }
 
     return $json;
+  }
+
+  /**
+   * By default, calls {@link Fetch#jsonDecode()}
+   * @throws FetchException if the JSON could not be read
+   */
+  function jsonDecode($raw) {
+    return Fetch::jsonDecode($raw);
   }
 
 }

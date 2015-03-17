@@ -35,5 +35,7 @@
   "mupool": "\\Account\\MiningPool\\MuPool",
   "nicehash": "\\Account\\MiningPool\\NiceHash",
   "nut2pools_ftc": "\\Account\\MiningPool\\Nut2PoolsFTC",
+  "ozcoin_btc": "\\Account\\MiningPool\\OzCoinBTC",
+  "ozcoin_ltc": "\\Account\\MiningPool\\OzCoinLTC",
   "slush": "\\Account\\MiningPool\\Slush"
 }

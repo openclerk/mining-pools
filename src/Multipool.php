@@ -90,7 +90,7 @@ class Multipool extends AbstractMiner {
           'confirmed' => $data['confirmed_rewards'],
           'estimated' => $data['estimated_rewards'],
           'paid' => $data['payout_history'],
-          'hashrate' => $data['hashrate'] * 1e3 /* KH/s -> H/s */
+          'hashrate' => $data['hashrate'] * 1e3 /* KH/s -> H/s */,
         );
       }
     }
