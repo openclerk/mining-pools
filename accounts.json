@@ -38,5 +38,6 @@
   "ozcoin_btc": "\\Account\\MiningPool\\OzCoinBTC",
   "ozcoin_ltc": "\\Account\\MiningPool\\OzCoinLTC",
   "wemineltc": "\\Account\\MiningPool\\WeMineLTC",
+  "wemineftc": "\\Account\\MiningPool\\WeMineFTC",
   "slush": "\\Account\\MiningPool\\Slush"
 }
