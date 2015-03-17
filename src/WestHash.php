@@ -14,20 +14,20 @@ use \Apis\Fetch;
 use \Openclerk\Currencies\CurrencyFactory;
 
 /**
- * Represents the NiceHash mining pool.
+ * Represents the WestHash mining pool.
  */
-class NiceHash extends AbstractMiner {
+class WestHash extends AbstractMiner {
 
   public function getName() {
-    return "NiceHash";
+    return "WestHash";
   }
 
   public function getCode() {
-    return "nicehash";
+    return "westhash";
   }
 
   public function getURL() {
-    return "https://www.nicehash.com/";
+    return "https://www.westhash.com/";
   }
 
   public function getFields() {
@@ -53,7 +53,7 @@ class NiceHash extends AbstractMiner {
 
   public function fetchBalances($account, CurrencyFactory $factory, Logger $logger) {
 
-    $url = "https://www.nicehash.com/api?method=balance&id=" . urlencode($account['api_id']) . "&key=" . urlencode($account['api_key']);
+    $url = "https://www.westhash.com/api?method=balance&id=" . urlencode($account['api_id']) . "&key=" . urlencode($account['api_key']);
     $json = $this->fetchJSON($url, $logger);
 
     if (isset($json['result']['error'])) {
