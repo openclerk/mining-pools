@@ -47,6 +47,10 @@ class Eobot extends AbstractMiner {
     $result = array();
     foreach ($json as $cur => $data) {
       $currency = $this->getCurrencyCode($cur);
+      if (strlen($currency) != 3) {
+        // bail on unsupported/unmapped currencies
+        continue;
+      }
       $result[] = $currency;
     }
 
@@ -79,6 +83,10 @@ class Eobot extends AbstractMiner {
       }
 
       $currency = $this->getCurrencyCode($cur);
+      if (strlen($currency) != 3) {
+        // bail on unsupported/unmapped currencies
+        continue;
+      }
       $result[$currency] = array('confirmed' => $balance);
 
       if ($mining['mining'] == $cur) {
