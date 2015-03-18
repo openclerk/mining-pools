@@ -28,7 +28,7 @@ and run `composer update` to install it into your project:
 
 First, define a way to load Currency instances from three-character codes, according to [openclerk/currencies](https://github.com/openclerk/currencies):
 
-```
+```php
 use \DiscoveredComponents\Currencies;
 use \Openclerk\Currencies\Currency;
 use \Openclerk\Currencies\CurrencyFactory;
@@ -112,6 +112,7 @@ add the `--debug` switch to your `vendor/bin/phpunit` command.
 ## Contributing
 
 Pull requests that contribute new mining pools are welcome.
+
 Make sure that you also provide an associated Test suite so that the mining pool is automatically testable.
 
 ## TODO
