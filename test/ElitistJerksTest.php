@@ -13,7 +13,7 @@ use Openclerk\Currencies\Currency;
 /**
  * Tests the {@link ElitistJerks} account type.
  */
-class ElitistJerksTest extends AbstractAccountTest {
+class ElitistJerksTest extends AbstractDisabledMiningPoolTest {
 
   function __construct() {
     parent::__construct(new \Account\MiningPool\ElitistJerks());

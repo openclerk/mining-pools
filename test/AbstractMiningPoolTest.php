@@ -56,4 +56,8 @@ abstract class AbstractMiningPoolTest extends AbstractActiveAccountTest {
     }
   }
 
+  function getAccountsJSON() {
+    return __DIR__ . "/../accounts.json";
+  }
+
 }

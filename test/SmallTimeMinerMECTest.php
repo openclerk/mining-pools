@@ -13,7 +13,7 @@ use Openclerk\Currencies\Currency;
 /**
  * Tests the {@link SmallTimeMinerMEC} account type.
  */
-class SmallTimeMinerMECTest extends AbstractAccountTest {
+class SmallTimeMinerMECTest extends AbstractDisabledMiningPoolTest {
 
   function __construct() {
     parent::__construct(new \Account\MiningPool\SmallTimeMinerMEC());

@@ -13,7 +13,7 @@ use Openclerk\Currencies\Currency;
 /**
  * Tests the {@link MiningPoolCo} account type.
  */
-class MiningPoolCoTest extends AbstractAccountTest {
+class MiningPoolCoTest extends AbstractDisabledMiningPoolTest {
 
   function __construct() {
     parent::__construct(new \Account\MiningPool\MiningPoolCo());

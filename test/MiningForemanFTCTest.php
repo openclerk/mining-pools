@@ -13,7 +13,7 @@ use Openclerk\Currencies\Currency;
 /**
  * Tests the {@link MiningForemanFTC} account type.
  */
-class MiningForemanFTCTest extends AbstractAccountTest {
+class MiningForemanFTCTest extends AbstractDisabledMiningPoolTest {
 
   function __construct() {
     parent::__construct(new \Account\MiningPool\MiningForemanFTC());

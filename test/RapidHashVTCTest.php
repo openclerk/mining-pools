@@ -13,7 +13,7 @@ use Openclerk\Currencies\Currency;
 /**
  * Tests the {@link RapidHashVTC} account type.
  */
-class RapidHashVTCTest extends AbstractAccountTest {
+class RapidHashVTCTest extends AbstractDisabledMiningPoolTest {
 
   function __construct() {
     parent::__construct(new \Account\MiningPool\RapidHashVTC());

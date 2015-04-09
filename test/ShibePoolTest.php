@@ -13,7 +13,7 @@ use Openclerk\Currencies\Currency;
 /**
  * Tests the {@link ShibePool} account type.
  */
-class ShibePoolTest extends AbstractAccountTest {
+class ShibePoolTest extends AbstractDisabledMiningPoolTest {
 
   function __construct() {
     parent::__construct(new \Account\MiningPool\ShibePool());

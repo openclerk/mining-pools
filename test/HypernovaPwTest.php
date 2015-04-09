@@ -13,7 +13,7 @@ use Openclerk\Currencies\Currency;
 /**
  * Tests the {@link HypernovaPw} account type.
  */
-class HypernovaPwTest extends AbstractAccountTest {
+class HypernovaPwTest extends AbstractDisabledMiningPoolTest {
 
   function __construct() {
     parent::__construct(new \Account\MiningPool\HypernovaPw());

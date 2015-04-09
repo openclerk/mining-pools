@@ -13,7 +13,7 @@ use Openclerk\Currencies\Currency;
 /**
  * Tests the {@link CoinHuntr} account type.
  */
-class CoinHuntrTest extends AbstractAccountTest {
+class CoinHuntrTest extends AbstractDisabledMiningPoolTest {
 
   function __construct() {
     parent::__construct(new \Account\MiningPool\CoinHuntr());

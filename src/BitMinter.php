@@ -75,6 +75,9 @@ class BitMinter extends AbstractMiner {
       $this->throttle($logger);
       $raw = Fetch::get($url, $options);
     } catch (FetchHttpException $e) {
+      if (!$e->getContent()) {
+        throw new AccountFetchException("Empty response: Have you enabled the API perk?");
+      }
       throw new AccountFetchException($e->getContent(), $e);
     }
     if ($raw === "Access denied") {

@@ -13,7 +13,7 @@ use Openclerk\Currencies\Currency;
 /**
  * Tests the {@link RapidHashDOGE} account type.
  */
-class RapidHashDOGETest extends AbstractAccountTest {
+class RapidHashDOGETest extends AbstractDisabledMiningPoolTest {
 
   function __construct() {
     parent::__construct(new \Account\MiningPool\RapidHashDOGE());

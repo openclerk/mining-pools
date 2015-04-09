@@ -13,7 +13,7 @@ use Openclerk\Currencies\Currency;
 /**
  * Tests the {@link HashFasterFTC} account type.
  */
-class HashFasterFTCTest extends AbstractAccountTest {
+class HashFasterFTCTest extends AbstractDisabledMiningPoolTest {
 
   function __construct() {
     parent::__construct(new \Account\MiningPool\HashFasterFTC());

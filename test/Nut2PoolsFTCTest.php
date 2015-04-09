@@ -13,7 +13,7 @@ use Openclerk\Currencies\Currency;
 /**
  * Tests the {@link Nut2PoolsFTC} account type.
  */
-class Nut2PoolsFTCTest extends AbstractAccountTest {
+class Nut2PoolsFTCTest extends AbstractDisabledMiningPoolTest {
 
   function __construct() {
     parent::__construct(new \Account\MiningPool\Nut2PoolsFTC());

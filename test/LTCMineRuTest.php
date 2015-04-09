@@ -13,7 +13,7 @@ use Openclerk\Currencies\Currency;
 /**
  * Tests the {@link LTCMineRu} account type.
  */
-class LTCMineRuTest extends AbstractAccountTest {
+class LTCMineRuTest extends AbstractDisabledMiningPoolTest {
 
   function __construct() {
     parent::__construct(new \Account\MiningPool\LTCMineRu());

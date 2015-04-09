@@ -13,7 +13,7 @@ use Openclerk\Currencies\Currency;
 /**
  * Tests the {@link DogechainPool} account type.
  */
-class DogechainPoolTest extends AbstractAccountTest {
+class DogechainPoolTest extends AbstractDisabledMiningPoolTest {
 
   function __construct() {
     parent::__construct(new \Account\MiningPool\DogechainPool());

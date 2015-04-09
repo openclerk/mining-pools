@@ -23,7 +23,7 @@ class Eligius extends AbstractMiner implements Miner {
   }
 
   public function getCode() {
-    return "btcguild";
+    return "eligius";
   }
 
   public function getURL() {

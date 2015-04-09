@@ -13,7 +13,7 @@ use Openclerk\Currencies\Currency;
 /**
  * Tests the {@link TeamDoge} account type.
  */
-class TeamDogeTest extends AbstractAccountTest {
+class TeamDogeTest extends AbstractDisabledMiningPoolTest {
 
   function __construct() {
     parent::__construct(new \Account\MiningPool\TeamDoge());
